@@ -58,6 +58,12 @@ body {
   padding-right: 10px;
 }
 
+.closing {
+  position: absolute;
+  margin-left: 45%;
+  cursor: pointer;
+}
+
 span {
   display: inline-flex;
   align-items: center;

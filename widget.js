@@ -9,7 +9,9 @@ class ToolbarComponent {
       var naviWrapper = document.createElement("div");
       var message = document.createElement("span");
       var button = document.createElement("button");
+      var closeElement = document.createElement("div");
       var bar = document.getElementById('navigation');
+
 
       if (this.position == "bottom") {
         bar.className = "bottomMenu";
@@ -25,12 +27,38 @@ class ToolbarComponent {
       naviWrapper.className = "navigation-wrapper";
       message.innerText = this.msg;
       message.className = "text";
+      closeElement.innerText = "X";
+      closeElement.setAttribute("id", "Close");
+      closeElement.className = "closing"
 
       bar.appendChild(naviWrapper);
       naviWrapper.appendChild(message);
       naviWrapper.appendChild(button);
+      naviWrapper.appendChild(closeElement);
     }
 }
+
+
+let Toolbar = new ToolbarComponent("asdasdas", "top");
+Toolbar.addNewToolbar();
+
+document.getElementById("Close").addEventListener("click", function(){
+    var fadeTarget = document.getElementById("navigation");
+    var fadeEffect = setInterval(function () {
+        if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1;
+        }
+        if (fadeTarget.style.opacity > 0) {
+            fadeTarget.style.opacity -= 0.1;
+        } else {
+            clearInterval(fadeEffect);
+        }
+    }, 20);
+
+
+document.getElementById("target").addEventListener('click', fadeOutEffect);
+
+});
 
 document.getElementById("Btn").addEventListener("click", function(){
   alert("Hello world!");

@@ -30,6 +30,12 @@ body {
   bottom: 0;
 }
 
+.closing {
+  position: absolute;
+  margin-left: 45%;
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
 }
