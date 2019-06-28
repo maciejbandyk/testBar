@@ -22,6 +22,32 @@ body {
   justify-content: center;
 }
 
+.navigation-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+  background-color: #5e6069;
+  color: #fff;
+}
+
+.button {
+  width: auto;
+  height: 50%;
+  background-color: #F9BE2A;
+  border-radius: 4px;
+  padding: 0px 10px 0px 10px;
+  color: #FFF;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+
+}
+
+.text {
+  padding-right: 10px;
+}
+
 span {
   display: inline-flex;
   align-items: center;
