@@ -1,49 +1,38 @@
-class ToolbarComponent {
-  constructor(msg, position) {
-    this.msg = msg;
-    this.position = position;
+class TaskBar {
+  constructor(options) {
+    this.message = options.message || "Some default message";
+    this.position = options.position || "top";
+    this.buildWidget();
+    this.renderDomContent();
+
   }
 
-  addNewToolbar() {
+  buildWidget() {
+    this.wrapper = document.createElement('div');
+    this.wrapper.className= "component-wrapper "+ this.position;
 
-      var naviWrapper = document.createElement("div");
-      var message = document.createElement("span");
-      var button = document.createElement("button");
-      var closeElement = document.createElement("div");
-      var bar = document.getElementById('navigation');
+    this.markup = `<span class="task-msg"></span>
+    <button class="task-btn">Click Me!</button>
+    <div class="task-close"></div>`;
 
+    this.wrapper.innerHTML = this.markup;
 
-      if (this.position == "bottom") {
-        bar.className = "bottomMenu";
-      }
+    this.msg = this.wrapper.getElementsByClassName('task-message').item(0);
+    this.msg.innerText = this.message;
+    this.btn = this.wrapper.getElementsByClassName('task-button').item(0);
+    this.cls = this.wrapper.getElementsByClassName('task-close').item(0);
+    this.btn.onclick = () => alert('test');
+    this.cls.onclick = () => TaskBar.fadeOutEffect();
+  }
 
-      if (this.position == "initial") {
-        bar.className = "hidden";
-      }
+  renderDomContent() {
+    document.body.append(
+      this.wrapper
+    );
+  }
 
-      button.innerText = "Get Widgets";
-      button.className = "button";
-      button.setAttribute("id", "Btn");
-      naviWrapper.className = "navigation-wrapper";
-      message.innerText = this.msg;
-      message.className = "text";
-      closeElement.innerText = "X";
-      closeElement.setAttribute("id", "Close");
-      closeElement.className = "closing"
-
-      bar.appendChild(naviWrapper);
-      naviWrapper.appendChild(message);
-      naviWrapper.appendChild(button);
-      naviWrapper.appendChild(closeElement);
-    }
-}
-
-
-let Toolbar = new ToolbarComponent("asdasdas", "top");
-Toolbar.addNewToolbar();
-
-document.getElementById("Close").addEventListener("click", function(){
-    var fadeTarget = document.getElementById("navigation");
+  static fadeOutEffect() {
+    var fadeTarget = document.getElementsByClassName("component-wrapper").item(0);
     var fadeEffect = setInterval(function () {
         if (!fadeTarget.style.opacity) {
             fadeTarget.style.opacity = 1;
@@ -54,12 +43,8 @@ document.getElementById("Close").addEventListener("click", function(){
             clearInterval(fadeEffect);
         }
     }, 20);
+  }
 
+}
 
-document.getElementById("target").addEventListener('click', fadeOutEffect);
-
-});
-
-document.getElementById("Btn").addEventListener("click", function(){
-  alert("Hello world!");
-});
+let taskBar = new TaskBar('wiadomosc','bottom');
