@@ -1,0 +1,90 @@
+body {
+  margin: 0px;
+  min-height: 100vh;
+}
+
+button {
+    outline-style: none;
+}
+
+.page-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.dot {
+  height: 75px;
+  width: 75px;
+  background-color:#fff;
+  border:4px solid grey;
+  border-radius:50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+  text-align: center;
+  justify-content: center;
+}
+
+.dot-span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.component-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 55px;
+  background-color: #5e6069;
+  color: #fff;
+}
+
+.task-button {
+  width: auto;
+  height: 50%;
+  background-color: #F9BE2A;
+  border-radius: 4px;
+  padding: 0px 10px 0px 10px;
+  color: #FFF;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+}
+
+.bottom {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.top {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.task-message {
+  padding-right: 10px;
+}
+
+.task-close {
+  position: absolute;
+  margin-left: 45%;
+  cursor: pointer;
+}
+
+.task-close::after {
+  font: 18px 'FontAwesome', sans-serif;
+  content: '\f00d';
+}
+
+.task-message {
+  display: inline-flex;
+  align-items: center;
+}
