@@ -47,4 +47,7 @@ class TaskBar {
 
 }
 
-let taskBar = new TaskBar('wiadomosc','bottom');
+let taskBar = new TaskBar({
+  message: 'Add beautifull widget to your site!',
+  position: 'top'
+});

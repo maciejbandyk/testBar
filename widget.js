@@ -11,9 +11,9 @@ class TaskBar {
     this.wrapper = document.createElement('div');
     this.wrapper.className= "component-wrapper "+ this.position;
 
-    this.markup = `<span class="task-msg"></span>
-    <button class="task-btn">Click Me!</button>
-    <div class="task-close"></div>`;
+    this.markup = `<span class="task-message"></span>
+    <button class="task-button">Click Me!</button>
+    <div class="task-close">x</div>`;
 
     this.wrapper.innerHTML = this.markup;
 
@@ -47,4 +47,7 @@ class TaskBar {
 
 }
 
-let taskBar = new TaskBar('wiadomosc','bottom');
+let taskBar = new TaskBar({
+  message: 'Add beautifull widget to your site!',
+  position: 'top'
+});

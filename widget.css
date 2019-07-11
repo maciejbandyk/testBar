@@ -79,11 +79,6 @@ button {
   cursor: pointer;
 }
 
-.task-close::after {
-  font: 18px 'FontAwesome', sans-serif;
-  content: '\f00d';
-}
-
 .task-message {
   display: inline-flex;
   align-items: center;
